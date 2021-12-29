@@ -1,22 +1,19 @@
 import { FunctionComponent, SyntheticEvent, Fragment, useRef, RefObject } from 'react';
 import { getContent, postContent } from '../api/request';
 
-const Form: FunctionComponent = () => {
-  const nameRef = useRef<HTMLInputElement>(new HTMLInputElement());
-  const bodyRef = useRef<HTMLInputElement>(new HTMLInputElement());
+const RequestForm: FunctionComponent = () => {
+  const nameRef = useRef<HTMLInputElement>(null);
+  const bodyRef = useRef<HTMLInputElement>(null);
 
   const submitHandler = (event: SyntheticEvent): void => {
     event.preventDefault();
+    const name: string | undefined = nameRef?.current?.value;
+    const body: string | undefined = bodyRef?.current?.value;
 
-    if (isValidRef(nameRef) && isValidRef(bodyRef)) {
-      const name: string = nameRef.current.value;
-      const body: string = bodyRef.current.value;
+    if (name && name !== '' && body && body !== '') {
       postContent('request', { name, body }).then((response) => console.log(response.data.data));
     }
   };
-
-  const isValidRef = (ref: RefObject<HTMLInputElement>): boolean =>
-    !!ref?.current?.value && ref.current.value !== '';
 
   const logRequests = (event: SyntheticEvent): void => {
     event.preventDefault();
@@ -36,4 +33,4 @@ const Form: FunctionComponent = () => {
   );
 };
 
-export default Form;
+export default RequestForm;

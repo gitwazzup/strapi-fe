@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Form from './components/Form';
+import RequestForm from './components/RequestForm';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Form />
+        <RequestForm />
       </main>
     </div>
   );
