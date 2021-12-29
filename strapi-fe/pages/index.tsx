@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import RequestForm from './components/RequestForm';
 import styles from '../styles/Home.module.css';
+import StrapiForm from './components/StrapiForm';
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +14,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <RequestForm />
+        {/* <RequestForm /> */}
+        <StrapiForm />
       </main>
     </div>
   );

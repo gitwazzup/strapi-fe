@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_drop_down_dropdown_fields",
+  "info": {
+    "displayName": "Dropdown field",
+    "icon": "arrow-down"
+  },
+  "options": {},
+  "attributes": {
+    "options": {
+      "type": "enumeration",
+      "enum": [
+        "a",
+        "b",
+        "c",
+        "s"
+      ]
+    }
+  }
+}
