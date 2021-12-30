@@ -1,10 +1,11 @@
 import { FunctionComponent } from 'react';
 import { FormData } from '../../api/form';
+import InputLabel from '../shared/InputLabel';
 
 const TextAreaField: FunctionComponent<{ field: FormData }> = ({ field }) => {
   return (
     <div>
-      <label>{field.attributes.label}: </label>
+      <InputLabel text={field.attributes.label} />
       <textarea></textarea>
     </div>
   );
