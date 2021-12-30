@@ -5,7 +5,7 @@ import InputLabel from '../shared/InputLabel';
 const SelectField: FunctionComponent<{ field: FormData }> = ({ field }) => {
   return (
     <div>
-      <InputLabel text={field.attributes.label} />
+      <InputLabel text={field.attributes.label} required={field.attributes.required} />
       <select>
         {field.attributes.options.split(';').map((option: string, index: number) => (
           <option key={index} value={option.toLowerCase()}>
