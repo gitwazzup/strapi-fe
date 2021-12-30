@@ -5,7 +5,13 @@ const SelectField: FunctionComponent<{ field: FormData }> = ({ field }) => {
   return (
     <div>
       <label>{field.attributes.label}: </label>
-      <input required={field.attributes.required} type="text" />
+      <select>
+        {field.attributes.options.split(';').map((option: string, index: number) => (
+          <option key={index} value={option.toLowerCase()}>
+            {option}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

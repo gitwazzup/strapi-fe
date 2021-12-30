@@ -19,9 +19,9 @@ const StrapiForm: FunctionComponent = () => {
           fields.map((field: FormData) => {
             switch (field.attributes.type) {
               case FormType.TEXT:
-                return <SelectField field={field} />;
-              case FormType.SELECT:
                 return <TextField field={field} />;
+              case FormType.SELECT:
+                return <SelectField field={field} />;
               case FormType.TEXT_AREA:
                 return <TextAreaField field={field} />;
               default:
