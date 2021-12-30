@@ -1,5 +1,5 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import { FormAPIReponse, FormData, getForm } from '../api/form';
+import { FormAPIReponse, FormData, FormType, getForm } from '../api/form';
 
 const StrapiForm: FunctionComponent = () => {
   const [fields, setFields] = useState<FormData[] | null>([]);
@@ -17,14 +17,14 @@ const StrapiForm: FunctionComponent = () => {
         {fields &&
           fields.map((field: FormData) => {
             switch (field.attributes.type) {
-              case 'text':
+              case FormType.TEXT:
                 return (
                   <div>
                     <label>{field.attributes.label}: </label>
                     <input required={field.attributes.required} type="text" />
                   </div>
                 );
-              case 'select':
+              case FormType.SELECT:
                 return (
                   <div>
                     <label>{field.attributes.label}: </label>
@@ -37,7 +37,7 @@ const StrapiForm: FunctionComponent = () => {
                     </select>
                   </div>
                 );
-              case 'textarea':
+              case FormType.TEXT_AREA:
                 return (
                   <div>
                     <label>{field.attributes.label}: </label>

@@ -16,6 +16,14 @@ export interface FormAttributes extends Attributes {
   required: boolean;
 }
 
+export enum FormType {
+  'TEXT' = 'text',
+  'TEXT_AREA' = 'textarea',
+  'SELECT' = 'select',
+  'DATE' = 'date',
+  'EMAIL' = 'email',
+}
+
 export async function getForm(form: string): Promise<FormAPIReponse> {
   const url = `${API_URL}/${form}s`;
   return (await axios.get<FormAPIReponse, AxiosResponse>(url)).data;
