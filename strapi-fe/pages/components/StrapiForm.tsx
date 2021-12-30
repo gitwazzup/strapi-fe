@@ -16,16 +16,16 @@ const StrapiForm: FunctionComponent = () => {
       <h1>Strapi generated form</h1>
       <form>
         {fields &&
-          fields.map((field: FormData) => {
+          fields.map((field: FormData, index: number) => {
             switch (field.attributes.type) {
               case FormType.TEXT:
-                return <TextField field={field} />;
+                return <TextField key={index} field={field} />;
               case FormType.SELECT:
-                return <SelectField field={field} />;
+                return <SelectField key={index} field={field} />;
               case FormType.TEXT_AREA:
-                return <TextAreaField field={field} />;
+                return <TextAreaField key={index} field={field} />;
               default:
-                return <p>no type match!</p>;
+                return <p key={index}>no type match!</p>;
             }
           })}
       </form>
