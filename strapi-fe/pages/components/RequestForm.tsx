@@ -1,5 +1,5 @@
-import { FunctionComponent, SyntheticEvent, Fragment, useRef, RefObject } from 'react';
-import { getContent, postContent } from '../api/request';
+import { FunctionComponent, SyntheticEvent, Fragment, useRef } from 'react';
+import { getContent, postContent, RequestAPIResponse } from '../api/request';
 
 const RequestForm: FunctionComponent = () => {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -17,7 +17,7 @@ const RequestForm: FunctionComponent = () => {
 
   const logRequests = (event: SyntheticEvent): void => {
     event.preventDefault();
-    getContent('request').then((response) => console.log(response));
+    getContent('request').then((response: RequestAPIResponse) => console.log(response));
   };
 
   return (
