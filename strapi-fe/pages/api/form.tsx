@@ -1,13 +1,15 @@
 import axios, { AxiosResponse } from 'axios';
-import { StrapiAPIResponse, API_URL } from './strapi';
+import { StrapiAPIResponse, Data, Meta, API_URL, Attributes } from './strapi';
 
-export type FormAPIReponse = StrapiAPIResponse & {
-  data: {
-    attributes: FormAttributes;
-  };
-};
+export interface FormAPIReponse extends StrapiAPIResponse {
+  data: FormData[];
+}
 
-export interface FormAttributes {
+export interface FormData extends Data {
+  attributes: FormAttributes;
+}
+
+export interface FormAttributes extends Attributes {
   type: string;
   label: string;
   options: string;

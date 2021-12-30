@@ -1,22 +1,22 @@
 import axios from 'axios';
 
 export interface StrapiAPIResponse {
-  data: Data;
+  data: Data[];
   meta: Meta;
 }
 
-interface Data {
+export interface Data {
   id: number;
   attributes: Attributes;
 }
 
-interface Attributes {
+export interface Attributes {
   createdAt: string;
   publishedAt: string;
   updatedAt: string;
 }
 
-interface Meta {
+export interface Meta {
   meta: Pagination;
 }
 

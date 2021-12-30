@@ -1,13 +1,11 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import { FormAPIReponse, FormAttributes, getForm } from '../api/form';
+import { FormAPIReponse, FormData, getForm } from '../api/form';
 
 const StrapiForm: FunctionComponent = () => {
-  const [fields, setFields] = useState([]);
+  const [fields, setFields] = useState<FormData[] | null>([]);
 
   useEffect(() => {
-    getForm('form').then((fieldData: FormAPIReponse) => {
-      setFields(fieldData.data);
-    });
+    getForm('form').then((fieldData: FormAPIReponse) => setFields(fieldData.data));
   }, [setFields]);
 
   const getRandomId = () => Math.floor(Math.random() * 1000);
@@ -17,7 +15,7 @@ const StrapiForm: FunctionComponent = () => {
       <h1>Strapi generated form</h1>
       <form>
         {fields &&
-          fields.map((field: { attributes: FormAttributes }) => {
+          fields.map((field: FormData) => {
             switch (field.attributes.type) {
               case 'text':
                 return (
@@ -32,7 +30,7 @@ const StrapiForm: FunctionComponent = () => {
                     <label>{field.attributes.label}: </label>
                     <select>
                       {field.attributes.options.split(';').map((option: string) => (
-                        <option key={getRandomId()} value={option.toLowerCase}>
+                        <option key={getRandomId()} value={option.toLowerCase()}>
                           {option}
                         </option>
                       ))}
