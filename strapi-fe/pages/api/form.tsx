@@ -12,7 +12,7 @@ export interface FormData extends Data {
 export interface FormAttributes extends Attributes {
   type: string;
   label: string;
-  options: string;
+  options: string[];
   required: boolean;
 }
 

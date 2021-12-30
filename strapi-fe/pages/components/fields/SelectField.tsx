@@ -7,7 +7,7 @@ const SelectField: FunctionComponent<{ field: FormData }> = ({ field }) => {
     <div>
       <InputLabel text={field.attributes.label} required={field.attributes.required} />
       <select>
-        {field.attributes.options.split(';').map((option: string, index: number) => (
+        {field.attributes.options.map((option: string, index: number) => (
           <option key={index} value={option.toLowerCase()}>
             {option}
           </option>

@@ -20,17 +20,10 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "text",
-        "textarea",
-        "select",
-        "radio",
-        "date",
-        "email"
-      ]
+      "enum": ["text", "textarea", "select", "radio", "date", "email"]
     },
     "options": {
-      "type": "string"
+      "type": "json"
     }
   }
 }
